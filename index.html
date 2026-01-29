@@ -3,231 +3,1016 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moltbot 个人 AI 助手 - 中文网站</title>
+  <title>Moltbot 个人 AI 助手 - 运行在你自己的设备上</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    
+    .gradient-bg {
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(248, 113, 113, 0.15), transparent),
+                  radial-gradient(ellipse 60% 40% at 80% 50%, rgba(168, 85, 247, 0.1), transparent),
+                  radial-gradient(ellipse 60% 40% at 20% 80%, rgba(59, 130, 246, 0.1), transparent);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #0c0a09 100%);
+    }
+    
+    .glow-rose {
+      box-shadow: 0 0 60px -15px rgba(244, 63, 94, 0.5);
+    }
+    
+    .glow-purple {
+      box-shadow: 0 0 60px -15px rgba(168, 85, 247, 0.5);
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-delay {
+      animation: float 6s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .animate-pulse-slow {
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border-color: rgba(248, 113, 113, 0.5);
+    }
+    
+    .glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #f87171 0%, #a855f7 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .border-gradient {
+      position: relative;
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.2), rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+    }
+    
+    .border-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.3), rgba(168, 85, 247, 0.3), rgba(59, 130, 246, 0.3));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+    
+    .stat-number {
+      background: linear-gradient(135deg, #f87171 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .scroll-smooth {
+      scroll-behavior: smooth;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    
+    .feature-icon {
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+      border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+    
+    .channel-badge {
+      background: linear-gradient(135deg, rgba(248, 113, 113, 0.1), rgba(168, 85, 247, 0.1));
+      border: 1px solid rgba(248, 113, 113, 0.2);
+    }
+    
+    .step-connector {
+      background: linear-gradient(180deg, rgba(248, 113, 113, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%);
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100">
-  <div class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,113,113,0.18),_transparent_55%)]"></div>
-    <header class="relative z-10">
-      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">🦞</span>
-          <span class="text-lg font-semibold">Moltbot</span>
-        </div>
-        <div class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
-          <a href="#overview" class="hover:text-white">概览</a>
-          <a href="#features" class="hover:text-white">亮点</a>
-          <a href="#install" class="hover:text-white">安装</a>
-          <a href="#security" class="hover:text-white">安全</a>
-          <a href="#links" class="hover:text-white">资源</a>
-        </div>
-      </nav>
-      <div class="mx-auto max-w-6xl px-6 pb-16 pt-8">
-        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
-              EXFOLIATE! EXFOLIATE!
-            </p>
-            <h1 class="text-4xl font-semibold leading-tight text-white md:text-5xl">
-              个人 AI 助手 Moltbot，运行在你自己的设备上
-            </h1>
-            <p class="mt-4 text-lg text-slate-300">
-              Moltbot 是一款本地优先、单用户的个人 AI 助手。它能在你常用的聊天渠道中回复，并且支持语音、Canvas 视觉工作区以及丰富的工具能力。
-            </p>
-            <div class="mt-6 flex flex-wrap gap-4">
-              <a href="https://molt.bot" class="rounded-lg bg-rose-500 px-5 py-3 text-sm font-semibold text-white hover:bg-rose-400">访问官网</a>
-              <a href="https://docs.molt.bot/start/getting-started" class="rounded-lg border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-white">快速入门</a>
-              <a href="https://discord.gg/clawd" class="rounded-lg border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-white">加入 Discord</a>
+<body class="bg-slate-950 text-slate-100 scroll-smooth">
+  
+  <!-- Animated Background -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+    <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -2s;"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: -4s;"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-slate-800/50">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 py-4">
+        <span class="text-3xl animate-float">🦞</span>
+        <span class="text-xl font-bold bg-gradient-to-r from-rose-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Moltbot</span>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#features" class="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">功能</a>
+        <a href="#channels" class="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">渠道</a>
+        <a href="#install" class="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">安装</a>
+        <a href="#security" class="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">安全</a>
+        <a href="#docs" class="px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-lg transition-all">文档</a>
+      </div>
+      
+      <div class="flex items-center gap-3">
+        <a href="https://docs.molt.bot/start/getting-started" class="hidden sm:inline-flex px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-all">文档</a>
+        <a href="https://github.com/moltbot/moltbot" class="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-rose-500 to-purple-500 hover:from-rose-400 hover:to-purple-400 rounded-lg transition-all shadow-lg hover:shadow-rose-500/25">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20 gradient-bg overflow-hidden">
+    <div class="absolute inset-0 bg-grid-slate-800/[0.02] bg-[size:60px_60px]"></div>
+    
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+        
+        <!-- Left Content -->
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span class="text-slate-300">开源免费 · 本地优先 · 始终在线</span>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+            <span class="block">个人 AI 助手</span>
+            <span class="block text-gradient mt-2">运行在你自己的设备上</span>
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-xl">
+            Moltbot 是一款本地优先、单用户的个人 AI 助手。它在你常用的聊天渠道中回复，支持语音、Canvas 视觉工作区以及丰富的工具能力。
+          </p>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="https://docs.molt.bot/start/getting-started" class="group px-8 py-4 bg-gradient-to-r from-rose-500 to-purple-500 rounded-xl font-semibold text-white shadow-lg hover:shadow-rose-500/30 transition-all hover:-translate-y-1">
+              开始使用
+              <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a href="https://github.com/moltbot/moltbot" class="px-8 py-4 glass rounded-xl font-semibold text-slate-200 hover:bg-slate-800/70 transition-all hover:-translate-y-1">
+              查看源码
+            </a>
+            <a href="https://discord.gg/clawd" class="px-8 py-4 glass rounded-xl font-semibold text-slate-200 hover:bg-slate-800/70 transition-all hover:-translate-y-1">
+              Discord 社区
+            </a>
+          </div>
+          
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800">
+            <div>
+              <div class="text-3xl font-bold stat-number">15+</div>
+              <div class="text-sm text-slate-400 mt-1">支持渠道</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold stat-number">100%</div>
+              <div class="text-sm text-slate-400 mt-1">本地控制</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold stat-number">3</div>
+              <div class="text-sm text-slate-400 mt-1">平台支持</div>
             </div>
           </div>
-          <div class="relative">
-            <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-2xl">
-              <img src="https://raw.githubusercontent.com/moltbot/moltbot/main/docs/whatsapp-clawd.jpg" alt="Moltbot" class="h-64 w-full rounded-2xl object-cover" />
-              <div class="mt-6 space-y-3 text-sm text-slate-300">
-                <div class="flex items-center justify-between">
-                  <span>支持渠道</span>
-                  <span class="font-semibold text-white">WhatsApp / Telegram / Slack / Discord / Signal / iMessage 等</span>
+        </div>
+        
+        <!-- Right Content - Visual -->
+        <div class="relative">
+          <div class="relative rounded-3xl border border-slate-700/50 bg-slate-900/80 p-6 glow-rose animate-float">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900">
+              <img src="https://raw.githubusercontent.com/moltbot/moltbot/main/docs/whatsapp-clawd.jpg" alt="Moltbot Interface" class="w-full h-full object-cover opacity-90" />
+            </div>
+            
+            <!-- Floating badges -->
+            <div class="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl animate-float-delay">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500 to-purple-500 flex items-center justify-center">
+                  <span class="text-xl">⚡</span>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span>运行方式</span>
-                  <span class="font-semibold text-white">本地 Gateway + CLI + 节点应用</span>
+                <div>
+                  <div class="text-sm font-semibold text-white">即时响应</div>
+                  <div class="text-xs text-slate-400">本地运行，秒级响应</div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <span>推荐模型</span>
-                  <span class="font-semibold text-white">Anthropic Pro/Max + Opus 4.5</span>
+              </div>
+            </div>
+            
+            <div class="absolute -bottom-4 -left-4 glass rounded-2xl p-4 shadow-xl animate-float">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                  <span class="text-xl">🔒</span>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white">隐私安全</div>
+                  <div class="text-xs text-slate-400">数据完全掌控</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
-  </div>
+    </div>
+  </section>
 
-  <main class="mx-auto max-w-6xl space-y-20 px-6 pb-20">
-    <section id="overview" class="grid gap-8 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div>
-        <h2 class="text-2xl font-semibold text-white">项目概览</h2>
-        <p class="mt-4 text-slate-300">
-          Moltbot 是一个可自托管的个人 AI 助手，主打“本地优先、始终在线”。它以 Gateway 控制平面为核心，统一管理会话、渠道、工具与事件，并可通过 CLI 和客户端应用随时调用。
+  <!-- Channels Section -->
+  <section id="channels" class="relative py-24 overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="text-gradient">一个助手，无处不在</span>
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          在你喜欢的任何平台与 Moltbot 对话，无需切换应用
         </p>
-        <p class="mt-4 text-slate-300">
-          你可以通过引导向导（moltbot onboard）完成安装，适配 macOS、Linux、Windows (WSL2)。同时支持 npm、pnpm 或 bun 安装。
+      </div>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">💬</div>
+          <div class="text-sm font-medium text-slate-200">WhatsApp</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">✈️</div>
+          <div class="text-sm font-medium text-slate-200">Telegram</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">💼</div>
+          <div class="text-sm font-medium text-slate-200">Slack</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">🎮</div>
+          <div class="text-sm font-medium text-slate-200">Discord</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">💬</div>
+          <div class="text-sm font-medium text-slate-200">Google Chat</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">📱</div>
+          <div class="text-sm font-medium text-slate-200">Signal</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">💬</div>
+          <div class="text-sm font-medium text-slate-200">iMessage</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">📧</div>
+          <div class="text-sm font-medium text-slate-200">Microsoft Teams</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">🌐</div>
+          <div class="text-sm font-medium text-slate-200">Matrix</div>
+        </div>
+        <div class="channel-badge rounded-2xl p-6 text-center card-hover">
+          <div class="text-4xl mb-3">🌏</div>
+          <div class="text-sm font-medium text-slate-200">Zalo</div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-slate-400 text-sm">
+          还有 <span class="text-rose-400 font-semibold">WebChat</span>、<span class="text-purple-400 font-semibold">BlueBubbles</span> 等更多扩展渠道
         </p>
       </div>
-      <div class="space-y-4 text-sm text-slate-200">
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
-          <p class="font-semibold text-white">推荐运行方式</p>
-          <p class="mt-2 text-slate-300">moltbot onboard --install-daemon</p>
-        </div>
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
-          <p class="font-semibold text-white">控制平面</p>
-          <p class="mt-2 text-slate-300">ws://127.0.0.1:18789 作为 Gateway 接入点</p>
-        </div>
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
-          <p class="font-semibold text-white">订阅模型</p>
-          <p class="mt-2 text-slate-300">支持 Anthropic / OpenAI OAuth 与 API Key 轮换</p>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="features" class="space-y-10">
-      <div class="text-center">
-        <h2 class="text-3xl font-semibold text-white">核心亮点</h2>
-        <p class="mt-3 text-slate-300">从多渠道收件箱到语音唤醒，全面覆盖个人助手所需能力。</p>
+  <!-- Features Section -->
+  <section id="features" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="text-gradient">强大的功能，简单的体验</span>
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          从语音对话到视觉工作区，Moltbot 提供完整的个人助手体验
+        </p>
       </div>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-xl font-semibold text-white">多渠道收件箱</h3>
-          <p class="mt-3 text-slate-300">
-            支持 WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、Matrix、Zalo 等渠道，还可接入 WebChat 与蓝牙扩展。
+      
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        
+        <!-- Feature 1 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">🎙️</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">语音唤醒 & Talk Mode</h3>
+          <p class="text-slate-300 leading-relaxed">
+            支持 macOS、iOS、Android 的持续语音对话，结合 ElevenLabs 实现自然流畅的语音助手体验，"Hey Moltbot" 即可唤醒。
           </p>
         </div>
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-xl font-semibold text-white">本地 Gateway 控制平面</h3>
-          <p class="mt-3 text-slate-300">
-            单一 WebSocket 网络管理会话、事件、配置、工具与自动化，让你的助手稳定运行在本地设备上。
+        
+        <!-- Feature 2 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">🎨</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">Canvas 视觉工作区</h3>
+          <p class="text-slate-300 leading-relaxed">
+            AI 驱动的视觉工作区，支持 A2UI 推送、评估、快照等功能。助手可以直接在画布上操作和展示内容。
           </p>
         </div>
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-xl font-semibold text-white">语音唤醒与 Talk Mode</h3>
-          <p class="mt-3 text-slate-300">
-            支持 macOS、iOS、Android 的持续语音对话，结合 ElevenLabs 实现常驻语音助手体验。
+        
+        <!-- Feature 3 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">🌐</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">浏览器控制</h3>
+          <p class="text-slate-300 leading-relaxed">
+            内置专用 Chrome/Chromium 浏览器控制，支持快照、操作、上传、多配置文件，让助手帮你完成网页任务。
           </p>
         </div>
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-xl font-semibold text-white">工具与 Canvas</h3>
-          <p class="mt-3 text-slate-300">
-            内置浏览器控制、Canvas A2UI 视觉工作区、节点能力（相机、录屏、位置、通知）以及 Cron 自动化。
+        
+        <!-- Feature 4 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">🤖</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">多 Agent 路由</h3>
+          <p class="text-slate-300 leading-relaxed">
+            按工作区或群组隔离会话，支持群聊 mention 激活、回复路由和智能 chunk 发送策略，每个对话都有独立上下文。
           </p>
         </div>
-      </div>
-    </section>
-
-    <section class="grid gap-6 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 md:grid-cols-3">
-      <div>
-        <h3 class="text-lg font-semibold text-white">多 Agent 路由</h3>
-        <p class="mt-3 text-slate-300">按工作区或群组隔离会话，支持群聊 mention 激活、回复路由和 chunk 发送策略。</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">伴随应用</h3>
-        <p class="mt-3 text-slate-300">提供 macOS 菜单栏应用、iOS/Android 节点模式，随时调用设备端能力。</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-white">安全与运维</h3>
-        <p class="mt-3 text-slate-300">默认 DM 配对策略、模型故障切换、Tailscale/SSH 远程接入与完整诊断工具。</p>
-      </div>
-    </section>
-
-    <section id="install" class="space-y-8">
-      <div class="text-center">
-        <h2 class="text-3xl font-semibold text-white">安装与快速开始</h2>
-        <p class="mt-3 text-slate-300">Node 22+ 运行时，推荐使用 CLI 向导完成安装。</p>
-      </div>
-      <div class="grid gap-6 lg:grid-cols-2">
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-lg font-semibold text-white">推荐安装</h3>
-          <pre class="mt-4 overflow-x-auto rounded-2xl bg-slate-950/70 p-4 text-sm text-rose-100"><code>npm install -g moltbot@latest
-# 或: pnpm add -g moltbot@latest
-
-moltbot onboard --install-daemon</code></pre>
-          <p class="mt-4 text-sm text-slate-300">向导会安装 Gateway 守护进程，保证后台运行。</p>
+        
+        <!-- Feature 5 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">⚡</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">自动化 & Cron</h3>
+          <p class="text-slate-300 leading-relaxed">
+            内置 Cron 定时任务、Webhook 触发器、Gmail Pub/Sub 等自动化能力，让助手帮你执行定时任务。
+          </p>
         </div>
-        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
-          <h3 class="text-lg font-semibold text-white">快速启动</h3>
-          <pre class="mt-4 overflow-x-auto rounded-2xl bg-slate-950/70 p-4 text-sm text-rose-100"><code>moltbot gateway --port 18789 --verbose
+        
+        <!-- Feature 6 -->
+        <div class="glass rounded-3xl p-8 card-hover border-gradient">
+          <div class="feature-icon w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+            <span class="text-2xl">📱</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">跨平台节点</h3>
+          <p class="text-slate-300 leading-relaxed">
+            提供 macOS 菜单栏应用、iOS/Android 节点模式，可以在不同设备间同步和调用设备端能力。
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
 
-moltbot message send --to +1234567890 \
-  --message "Hello from Moltbot"
+  <!-- Architecture Section -->
+  <section class="relative py-24 overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="glass rounded-3xl p-8 sm:p-12 border-gradient">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            <span class="text-gradient">简洁而强大的架构</span>
+          </h2>
+          <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+            以 Gateway 为核心，统一管理所有连接和能力
+          </p>
+        </div>
+        
+        <div class="grid gap-8 lg:grid-cols-2">
+          <!-- Left - Diagram -->
+          <div class="bg-slate-950/50 rounded-2xl p-8 font-mono text-sm">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-rose-500/20 border border-rose-500/30 rounded-lg text-rose-300">WhatsApp</span>
+                <span class="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-lg text-purple-300">Telegram</span>
+                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-lg text-blue-300">Slack</span>
+                <span class="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-lg text-green-300">Discord</span>
+                <span class="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 rounded-lg text-yellow-300">Signal</span>
+                <span class="px-3 py-1 bg-pink-500/20 border border-pink-500/30 rounded-lg text-pink-300">iMessage</span>
+              </div>
+              
+              <div class="flex flex-col items-center py-2">
+                <div class="w-px h-6 bg-gradient-to-b from-slate-500 to-purple-500"></div>
+                <span class="text-slate-400">▼</span>
+                <div class="w-px h-6 bg-gradient-to-b from-purple-500 to-slate-500"></div>
+              </div>
+              
+              <div class="glass rounded-xl p-4 text-center border-2 border-purple-500/30 glow-purple">
+                <div class="text-purple-400 font-bold text-lg">Gateway 控制平面</div>
+                <div class="text-slate-400 text-xs mt-1">ws://127.0.0.1:18789</div>
+              </div>
+              
+              <div class="flex flex-col items-center py-2">
+                <div class="w-px h-4 bg-gradient-to-b from-slate-500 to-slate-600"></div>
+                <span class="text-slate-400">├─</span>
+                <div class="w-px h-4 bg-gradient-to-b from-slate-600 to-slate-500"></div>
+              </div>
+              
+              <div class="grid grid-cols-2 gap-2">
+                <div class="bg-slate-900/50 rounded-lg p-3 text-center">
+                  <div class="text-rose-400">🤖 Pi Agent</div>
+                  <div class="text-xs text-slate-500">RPC</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-lg p-3 text-center">
+                  <div class="text-blue-400">💻 CLI</div>
+                  <div class="text-xs text-slate-500">命令行</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-lg p-3 text-center">
+                  <div class="text-green-400">🌐 WebChat UI</div>
+                  <div class="text-xs text-slate-500">网页界面</div>
+                </div>
+                <div class="bg-slate-900/50 rounded-lg p-3 text-center">
+                  <div class="text-purple-400">📱 设备节点</div>
+                  <div class="text-xs text-slate-500">macOS/iOS/Android</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right - Description -->
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-rose-400 text-xl">🎛️</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-2">统一控制平面</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  Gateway 提供单一的 WebSocket 网络来管理会话、事件、配置、工具和自动化，简化了系统的复杂度。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-purple-400 text-xl">🔄</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-2">灵活的客户端</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  通过 CLI、WebChat 或原生应用连接，无论你在哪里都能访问你的 AI 助手。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-blue-400 text-xl">🔗</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-2">远程访问支持</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  通过 Tailscale Serve/Funnel 或 SSH 隧道，即使 Gateway 绑定在本地回环地址也能安全远程访问。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-green-400 text-xl">🔌</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-2">丰富的扩展能力</h4>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                  通过技能平台（Skills）轻松扩展能力，社区驱动的 ClawdHub 让发现和安装新技能变得简单。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-moltbot agent --message "Ship checklist" \
+  <!-- Install Section -->
+  <section id="install" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="text-gradient">快速开始，几分钟即可运行</span>
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          支持 macOS、Linux、Windows (WSL2)，推荐使用 Node 22+
+        </p>
+      </div>
+      
+      <div class="grid gap-8 lg:grid-cols-2">
+        
+        <!-- Quick Install -->
+        <div class="glass rounded-3xl p-8 border-gradient">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-purple-500 flex items-center justify-center">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">快速安装</h3>
+              <p class="text-sm text-slate-400">一键安装，开箱即用</p>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 bg-rose-400 rounded-full"></span>
+                安装 Moltbot
+              </div>
+              <pre class="text-sm text-rose-100 overflow-x-auto"><code>npm install -g moltbot@latest</code></pre>
+            </div>
+            
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 bg-purple-400 rounded-full"></span>
+                运行向导
+              </div>
+              <pre class="text-sm text-purple-100 overflow-x-auto"><code>moltbot onboard --install-daemon</code></pre>
+            </div>
+            
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2 flex items-center gap-2">
+                <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+                启动 Gateway
+              </div>
+              <pre class="text-sm text-blue-100 overflow-x-auto"><code>moltbot gateway --port 18789</code></pre>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+            <p class="text-sm text-slate-300">
+              💡 向导会自动安装守护进程，让 Moltbot 在后台稳定运行
+            </p>
+          </div>
+        </div>
+        
+        <!-- Quick Commands -->
+        <div class="glass rounded-3xl p-8 border-gradient">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+              <span class="text-2xl">🚀</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">常用命令</h3>
+              <p class="text-sm text-slate-400">开始与助手交互</p>
+            </div>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2">发送消息到渠道</div>
+              <pre class="text-sm text-green-100 overflow-x-auto"><code>moltbot message send --to +1234567890 \
+  --message "Hello from Moltbot"</code></pre>
+            </div>
+            
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2">直接与助手对话</div>
+              <pre class="text-sm text-yellow-100 overflow-x-auto"><code>moltbot agent --message "Ship checklist" \
   --thinking high</code></pre>
-          <p class="mt-4 text-sm text-slate-300">可选择将回复发送回任意连接渠道。</p>
+            </div>
+            
+            <div class="bg-slate-950/70 rounded-2xl p-5">
+              <div class="text-xs text-slate-400 mb-2">检查系统健康</div>
+              <pre class="text-sm text-cyan-100 overflow-x-auto"><code>moltbot doctor</code></pre>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 rounded-xl bg-slate-900/50 border border-slate-800">
+            <p class="text-sm text-slate-300">
+              💡 使用 <code class="text-rose-400">--thinking high</code> 可以让助手进行更深入的思考
+            </p>
+          </div>
+        </div>
+        
+      </div>
+      
+      <!-- Additional Info -->
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="text-center p-6 glass rounded-2xl">
+          <div class="text-3xl mb-3">📦</div>
+          <div class="font-semibold text-white mb-1">多种安装方式</div>
+          <div class="text-sm text-slate-400">npm / pnpm / bun</div>
+        </div>
+        <div class="text-center p-6 glass rounded-2xl">
+          <div class="text-3xl mb-3">🔄</div>
+          <div class="font-semibold text-white mb-1">开发频道</div>
+          <div class="text-sm text-slate-400">stable / beta / dev</div>
+        </div>
+        <div class="text-center p-6 glass rounded-2xl">
+          <div class="text-3xl mb-3">🐳</div>
+          <div class="font-semibold text-white mb-1">Docker 支持</div>
+          <div class="text-sm text-slate-400">容器化部署</div>
+        </div>
+        <div class="text-center p-6 glass rounded-2xl">
+          <div class="text-3xl mb-3">🧪</div>
+          <div class="font-semibold text-white mb-1">从源码构建</div>
+          <div class="text-sm text-slate-400">完全开源</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="security" class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
-      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
-          <h2 class="text-2xl font-semibold text-white">安全默认设置</h2>
-          <p class="mt-4 text-slate-300">
-            Moltbot 默认将未知私信视为不可信输入，并通过配对码流程进行授权。你也可以为群组或频道设置 allowlist 与 mention 激活策略。
+  <!-- Security Section -->
+  <section id="security" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+              <span class="text-gradient">安全与隐私优先</span>
+            </h2>
+            <p class="text-lg text-slate-300">
+              Moltbot 将安全性作为默认配置，你的数据完全由你掌控。
+            </p>
+          </div>
+          
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-rose-400">🔐</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">DM 配对策略</h4>
+                <p class="text-sm text-slate-300">
+                  未知发送方需通过配对码验证后才能与助手交互，默认开启。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-purple-400">🛡️</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">沙箱模式</h4>
+                <p class="text-sm text-slate-300">
+                  非主会话（群组/频道）可在 Docker 沙箱中运行，限制危险操作。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-blue-400">🌐</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">安全远程访问</h4>
+                <p class="text-sm text-slate-300">
+                  Tailscale Serve/Funnel 或 SSH 隧道，支持密码或 Token 认证。
+                </p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4">
+              <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                <span class="text-green-400">🔧</span>
+              </div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">安全诊断工具</h4>
+                <p class="text-sm text-slate-300">
+                  使用 <code class="text-rose-400">moltbot doctor</code> 检查配置风险和安全隐患。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Security Card -->
+        <div class="glass rounded-3xl p-8 border-gradient">
+          <h3 class="text-xl font-bold text-white mb-6">安全配置示例</h3>
+          
+          <div class="bg-slate-950/70 rounded-2xl p-5 font-mono text-sm">
+            <pre class="text-slate-300 overflow-x-auto"><code>{
+  <span class="text-rose-400">"agents"</span>: {
+    <span class="text-rose-400">"defaults"</span>: {
+      <span class="text-purple-400">"sandbox"</span>: {
+        <span class="text-blue-400">"mode"</span>: <span class="text-green-400">"non-main"</span>
+      }
+    }
+  },
+  <span class="text-rose-400">"gateway"</span>: {
+    <span class="text-purple-400">"bind"</span>: <span class="text-green-400">"loopback"</span>,
+    <span class="text-purple-400">"auth"</span>: {
+      <span class="text-blue-400">"mode"</span>: <span class="text-green-400">"password"</span>
+    }
+  },
+  <span class="text-rose-400">"channels"</span>: {
+    <span class="text-purple-400">"telegram"</span>: {
+      <span class="text-blue-400">"dmPolicy"</span>: <span class="text-green-400">"pairing"</span>
+    }
+  }
+}</code></pre>
+          </div>
+          
+          <div class="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
+            <p class="text-sm text-green-200">
+              ✅ 此配置将群组会话隔离在沙箱中，并要求 DM 配对验证
+            </p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Model Support Section -->
+  <section class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="text-gradient">灵活的模型支持</span>
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          支持多种 AI 模型和认证方式，按需选择最适合的
+        </p>
+      </div>
+      
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="glass rounded-3xl p-8 text-center card-hover border-gradient">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+            <span class="text-4xl">🧠</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">Anthropic</h3>
+          <p class="text-slate-300 text-sm mb-4">Claude Pro/Max + Opus 4.5</p>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20">
+            <span class="w-2 h-2 bg-amber-400 rounded-full"></span>
+            <span class="text-xs text-amber-300">推荐</span>
+          </div>
+        </div>
+        
+        <div class="glass rounded-3xl p-8 text-center card-hover border-gradient">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+            <span class="text-4xl">🤖</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">OpenAI</h3>
+          <p class="text-slate-300 text-sm mb-4">ChatGPT / Codex / GPT-4</p>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+            <span class="w-2 h-2 bg-emerald-400 rounded-full"></span>
+            <span class="text-xs text-emerald-300">支持</span>
+          </div>
+        </div>
+        
+        <div class="glass rounded-3xl p-8 text-center card-hover border-gradient">
+          <div class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+            <span class="text-4xl">🔄</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2">故障切换</h3>
+          <p class="text-slate-300 text-sm mb-4">OAuth & API Key 轮换</p>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20">
+            <span class="w-2 h-2 bg-blue-400 rounded-full"></span>
+            <span class="text-xs text-blue-300">自动</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-slate-400 text-sm max-w-2xl mx-auto">
+          💡 强烈推荐使用 Anthropic Pro/Max (100/200) + Opus 4.5 以获得最佳的长上下文能力和更强的提示注入防御
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Docs & Resources Section -->
+  <section id="docs" class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+          <span class="text-gradient">丰富的文档与资源</span>
+        </h2>
+        <p class="text-lg text-slate-300 max-w-2xl mx-auto">
+          从入门到精通，完整的文档体系助你快速上手
+        </p>
+      </div>
+      
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <a href="https://docs.molt.bot" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">📚</div>
+          <h3 class="text-lg font-bold text-white mb-2">文档中心</h3>
+          <p class="text-slate-400 text-sm">完整的技术文档，涵盖所有功能和配置选项</p>
+        </a>
+        
+        <a href="https://docs.molt.bot/start/getting-started" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">🚀</div>
+          <h3 class="text-lg font-bold text-white mb-2">快速入门</h3>
+          <p class="text-slate-400 text-sm">5分钟快速上手，体验 Moltbot 的核心功能</p>
+        </a>
+        
+        <a href="https://docs.molt.bot/start/wizard" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">🪄</div>
+          <h3 class="text-lg font-bold text-white mb-2">向导说明</h3>
+          <p class="text-slate-400 text-sm">了解如何使用交互式向导完成配置</p>
+        </a>
+        
+        <a href="https://docs.molt.bot/channels" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">💬</div>
+          <h3 class="text-lg font-bold text-white mb-2">渠道配置</h3>
+          <p class="text-slate-400 text-sm">各渠道的详细配置教程和最佳实践</p>
+        </a>
+        
+        <a href="https://docs.molt.bot/tools/skills" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">🛠️</div>
+          <h3 class="text-lg font-bold text-white mb-2">工具与技能</h3>
+          <p class="text-slate-400 text-sm">探索内置工具和社区技能库</p>
+        </a>
+        
+        <a href="https://docs.molt.bot/gateway/security" class="glass rounded-3xl p-6 card-hover block border-gradient">
+          <div class="text-3xl mb-4">🔒</div>
+          <h3 class="text-lg font-bold text-white mb-2">安全指南</h3>
+          <p class="text-slate-400 text-sm">深入了解安全配置和最佳实践</p>
+        </a>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://docs.molt.bot/start/faq" class="px-6 py-3 glass rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800/70 transition-all">FAQ</a>
+          <a href="https://docs.molt.bot/start/showcase" class="px-6 py-3 glass rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800/70 transition-all">案例展示</a>
+          <a href="https://docs.molt.bot/install/updating" class="px-6 py-3 glass rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800/70 transition-all">更新指南</a>
+          <a href="https://github.com/moltbot/moltbot" class="px-6 py-3 glass rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800/70 transition-all">GitHub</a>
+          <a href="https://discord.gg/clawd" class="px-6 py-3 glass rounded-xl text-sm font-medium text-slate-200 hover:bg-slate-800/70 transition-all">Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="relative glass rounded-3xl p-12 sm:p-16 text-center overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl"></div>
+          <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="relative">
+          <div class="text-6xl mb-6 animate-float">🦞</div>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+            准备好拥有你的个人 AI 助手了吗？
+          </h2>
+          <p class="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+            加入数千名用户，开始你的 AI 助手之旅。完全免费、开源、隐私安全。
           </p>
-          <ul class="mt-4 space-y-2 text-slate-300">
-            <li>• DM 配对策略：dmPolicy="pairing"，未知发送方需先验证。</li>
-            <li>• 公开 DM 需显式开启：dmPolicy="open" + allowFrom。</li>
-            <li>• 使用 moltbot doctor 检查配置风险。</li>
+          
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="https://docs.molt.bot/start/getting-started" class="px-8 py-4 bg-gradient-to-r from-rose-500 to-purple-500 rounded-xl font-semibold text-white shadow-lg hover:shadow-rose-500/30 transition-all hover:-translate-y-1">
+              立即开始
+              <span class="inline-block ml-2">→</span>
+            </a>
+            <a href="https://github.com/moltbot/moltbot" class="px-8 py-4 glass rounded-xl font-semibold text-slate-200 hover:bg-slate-800/70 transition-all hover:-translate-y-1">
+              Star on GitHub ⭐
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/50 bg-slate-950/80">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid gap-8 md:grid-cols-4">
+        
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-3xl">🦞</span>
+            <span class="text-xl font-bold bg-gradient-to-r from-rose-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Moltbot</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm mb-4">
+            个人 AI 助手，运行在你自己的设备上。本地优先、始终在线、隐私安全。
+          </p>
+          <div class="flex gap-4">
+            <a href="https://github.com/moltbot/moltbot" class="text-slate-400 hover:text-white transition-colors">GitHub</a>
+            <a href="https://discord.gg/clawd" class="text-slate-400 hover:text-white transition-colors">Discord</a>
+            <a href="https://x.com/moltbot" class="text-slate-400 hover:text-white transition-colors">Twitter</a>
+          </div>
+        </div>
+        
+        <!-- Links -->
+        <div>
+          <h4 class="font-semibold text-white mb-4">文档</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://docs.molt.bot/start/getting-started" class="text-slate-400 hover:text-white transition-colors">快速入门</a></li>
+            <li><a href="https://docs.molt.bot/gateway/configuration" class="text-slate-400 hover:text-white transition-colors">配置参考</a></li>
+            <li><a href="https://docs.molt.bot/channels" class="text-slate-400 hover:text-white transition-colors">渠道列表</a></li>
+            <li><a href="https://docs.molt.bot/tools/skills" class="text-slate-400 hover:text-white transition-colors">技能平台</a></li>
           </ul>
         </div>
-        <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 text-sm text-slate-300">
-          <p class="font-semibold text-white">远程访问</p>
-          <p class="mt-3">支持 Tailscale Serve/Funnel 或 SSH 隧道，让 Gateway 保持回环绑定也可安全远程访问。</p>
-          <p class="mt-4 font-semibold text-white">沙箱模式</p>
-          <p class="mt-3">可设置 agents.defaults.sandbox.mode: "non-main" 让非主会话在 Docker 沙箱中运行。</p>
+        
+        <!-- Resources -->
+        <div>
+          <h4 class="font-semibold text-white mb-4">资源</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://docs.molt.bot/start/faq" class="text-slate-400 hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="https://docs.molt.bot/gateway/security" class="text-slate-400 hover:text-white transition-colors">安全指南</a></li>
+            <li><a href="https://docs.molt.bot/channels/troubleshooting" class="text-slate-400 hover:text-white transition-colors">故障排除</a></li>
+            <li><a href="https://github.com/moltbot/moltbot/issues" class="text-slate-400 hover:text-white transition-colors">问题反馈</a></li>
+          </ul>
         </div>
+        
       </div>
-    </section>
-
-    <section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
-      <h2 class="text-2xl font-semibold text-white">Moltbot 架构（简要）</h2>
-      <div class="mt-6 rounded-2xl bg-slate-950/70 p-6 text-sm text-slate-300">
-        <p>WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / Matrix / Zalo / WebChat</p>
-        <p class="mt-2">&nbsp;&nbsp;│</p>
-        <p>&nbsp;&nbsp;▼</p>
-        <p>Gateway 控制平面 (ws://127.0.0.1:18789)</p>
-        <p>&nbsp;&nbsp;│</p>
-        <p>&nbsp;&nbsp;├─ Pi Agent (RPC)</p>
-        <p>&nbsp;&nbsp;├─ CLI</p>
-        <p>&nbsp;&nbsp;├─ WebChat UI</p>
-        <p>&nbsp;&nbsp;└─ macOS / iOS / Android 节点</p>
-      </div>
-    </section>
-
-    <section id="links" class="space-y-6 text-center">
-      <h2 class="text-3xl font-semibold text-white">更多资源</h2>
-      <p class="text-slate-300">深入了解 Moltbot 的完整文档与生态。</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://docs.molt.bot" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">文档中心</a>
-        <a href="https://docs.molt.bot/start/wizard" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">向导说明</a>
-        <a href="https://docs.molt.bot/channels" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">渠道列表</a>
-        <a href="https://docs.molt.bot/tools" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">工具与技能</a>
-        <a href="https://docs.molt.bot/gateway/security" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">安全指南</a>
-        <a href="https://github.com/moltbot/moltbot" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">GitHub 仓库</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="border-t border-slate-800 bg-slate-950/80">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-slate-400 md:flex-row">
-      <p>© 2025 Moltbot · Personal AI Assistant</p>
-      <div class="flex gap-4">
-        <a href="https://docs.molt.bot/start/faq" class="hover:text-white">FAQ</a>
-        <a href="https://docs.molt.bot/start/showcase" class="hover:text-white">案例展示</a>
-        <a href="https://docs.molt.bot/install/updating" class="hover:text-white">更新指南</a>
+      
+      <div class="mt-12 pt-8 border-t border-slate-800/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-sm">
+          © 2025 Moltbot · MIT License · Built with 🦞 by Peter Steinberger & Community
+        </p>
+        <div class="flex items-center gap-4 text-sm text-slate-500">
+          <a href="https://github.com/moltbot/moltbot/blob/main/LICENSE" class="hover:text-white transition-colors">MIT License</a>
+          <span>·</span>
+          <a href="https://clawd.me" class="hover:text-white transition-colors">clawd.me</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based navbar background
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.classList.add('bg-slate-950/90');
+      } else {
+        nav.classList.remove('bg-slate-950/90');
+      }
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      observer.observe(section);
+    });
+
+    // Make hero visible immediately
+    document.querySelector('section').style.opacity = '1';
+    document.querySelector('section').style.transform = 'translateY(0)';
+  </script>
 </body>
 </html>
