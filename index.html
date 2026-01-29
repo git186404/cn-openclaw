@@ -1,72 +1,233 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cn-moltbot - 中文网站</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moltbot 个人 AI 助手 - 中文网站</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
-    <div class="container mx-auto px-4 py-8">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">cn-moltbot</h1>
-            <p class="text-lg text-gray-600">一个强大的开源项目，旨在提供高效的解决方案。</p>
-        </header>
-
-        <main class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
-            <section class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">项目介绍</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    cn-moltbot 是一个开源项目，旨在提供高效的解决方案。该项目具有模块化设计，易于扩展和定制。无论您是开发者还是用户，都能从中受益。
-                </p>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">功能特性</h2>
-                <ul class="list-disc list-inside text-gray-700">
-                    <li>高效的性能表现</li>
-                    <li>模块化设计，易于扩展</li>
-                    <li>支持多种平台和环境</li>
-                    <li>详细的文档和示例</li>
-                    <li>活跃的社区支持</li>
-                </ul>
-            </section>
-
-            <section class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">安装指南</h2>
-                <div class="bg-gray-100 p-4 rounded-lg">
-                    <pre class="text-gray-800 overflow-x-auto"><code>npm install cn-moltbot</code></pre>
+<body class="bg-slate-950 text-slate-100">
+  <div class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(248,113,113,0.18),_transparent_55%)]"></div>
+    <header class="relative z-10">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🦞</span>
+          <span class="text-lg font-semibold">Moltbot</span>
+        </div>
+        <div class="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+          <a href="#overview" class="hover:text-white">概览</a>
+          <a href="#features" class="hover:text-white">亮点</a>
+          <a href="#install" class="hover:text-white">安装</a>
+          <a href="#security" class="hover:text-white">安全</a>
+          <a href="#links" class="hover:text-white">资源</a>
+        </div>
+      </nav>
+      <div class="mx-auto max-w-6xl px-6 pb-16 pt-8">
+        <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p class="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
+              EXFOLIATE! EXFOLIATE!
+            </p>
+            <h1 class="text-4xl font-semibold leading-tight text-white md:text-5xl">
+              个人 AI 助手 Moltbot，运行在你自己的设备上
+            </h1>
+            <p class="mt-4 text-lg text-slate-300">
+              Moltbot 是一款本地优先、单用户的个人 AI 助手。它能在你常用的聊天渠道中回复，并且支持语音、Canvas 视觉工作区以及丰富的工具能力。
+            </p>
+            <div class="mt-6 flex flex-wrap gap-4">
+              <a href="https://molt.bot" class="rounded-lg bg-rose-500 px-5 py-3 text-sm font-semibold text-white hover:bg-rose-400">访问官网</a>
+              <a href="https://docs.molt.bot/start/getting-started" class="rounded-lg border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-white">快速入门</a>
+              <a href="https://discord.gg/clawd" class="rounded-lg border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-200 hover:border-white">加入 Discord</a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-2xl">
+              <img src="https://raw.githubusercontent.com/moltbot/moltbot/main/docs/whatsapp-clawd.jpg" alt="Moltbot" class="h-64 w-full rounded-2xl object-cover" />
+              <div class="mt-6 space-y-3 text-sm text-slate-300">
+                <div class="flex items-center justify-between">
+                  <span>支持渠道</span>
+                  <span class="font-semibold text-white">WhatsApp / Telegram / Slack / Discord / Signal / iMessage 等</span>
                 </div>
-            </section>
+                <div class="flex items-center justify-between">
+                  <span>运行方式</span>
+                  <span class="font-semibold text-white">本地 Gateway + CLI + 节点应用</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span>推荐模型</span>
+                  <span class="font-semibold text-white">Anthropic Pro/Max + Opus 4.5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">使用说明</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    使用 cn-moltbot 非常简单。您只需要按照以下步骤进行操作：
-                </p>
-                <ol class="list-decimal list-inside text-gray-700 mt-4">
-                    <li>安装 cn-moltbot</li>
-                    <li>导入 cn-moltbot 模块</li>
-                    <li>按照文档中的示例进行配置</li>
-                    <li>运行您的应用程序</li>
-                </ol>
-            </section>
+  <main class="mx-auto max-w-6xl space-y-20 px-6 pb-20">
+    <section id="overview" class="grid gap-8 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 lg:grid-cols-[1.1fr_0.9fr]">
+      <div>
+        <h2 class="text-2xl font-semibold text-white">项目概览</h2>
+        <p class="mt-4 text-slate-300">
+          Moltbot 是一个可自托管的个人 AI 助手，主打“本地优先、始终在线”。它以 Gateway 控制平面为核心，统一管理会话、渠道、工具与事件，并可通过 CLI 和客户端应用随时调用。
+        </p>
+        <p class="mt-4 text-slate-300">
+          你可以通过引导向导（moltbot onboard）完成安装，适配 macOS、Linux、Windows (WSL2)。同时支持 npm、pnpm 或 bun 安装。
+        </p>
+      </div>
+      <div class="space-y-4 text-sm text-slate-200">
+        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+          <p class="font-semibold text-white">推荐运行方式</p>
+          <p class="mt-2 text-slate-300">moltbot onboard --install-daemon</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+          <p class="font-semibold text-white">控制平面</p>
+          <p class="mt-2 text-slate-300">ws://127.0.0.1:18789 作为 Gateway 接入点</p>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-950/60 p-4">
+          <p class="font-semibold text-white">订阅模型</p>
+          <p class="mt-2 text-slate-300">支持 Anthropic / OpenAI OAuth 与 API Key 轮换</p>
+        </div>
+      </div>
+    </section>
 
-            <section class="mb-8">
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">贡献指南</h2>
-                <p class="text-gray-700 leading-relaxed">
-                    我们欢迎所有形式的贡献，包括但不限于代码贡献、文档改进、bug 报告等。请阅读我们的贡献指南以了解更多详情。
-                </p>
-            </section>
+    <section id="features" class="space-y-10">
+      <div class="text-center">
+        <h2 class="text-3xl font-semibold text-white">核心亮点</h2>
+        <p class="mt-3 text-slate-300">从多渠道收件箱到语音唤醒，全面覆盖个人助手所需能力。</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-semibold text-white">多渠道收件箱</h3>
+          <p class="mt-3 text-slate-300">
+            支持 WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、Matrix、Zalo 等渠道，还可接入 WebChat 与蓝牙扩展。
+          </p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-semibold text-white">本地 Gateway 控制平面</h3>
+          <p class="mt-3 text-slate-300">
+            单一 WebSocket 网络管理会话、事件、配置、工具与自动化，让你的助手稳定运行在本地设备上。
+          </p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-semibold text-white">语音唤醒与 Talk Mode</h3>
+          <p class="mt-3 text-slate-300">
+            支持 macOS、iOS、Android 的持续语音对话，结合 ElevenLabs 实现常驻语音助手体验。
+          </p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-xl font-semibold text-white">工具与 Canvas</h3>
+          <p class="mt-3 text-slate-300">
+            内置浏览器控制、Canvas A2UI 视觉工作区、节点能力（相机、录屏、位置、通知）以及 Cron 自动化。
+          </p>
+        </div>
+      </div>
+    </section>
 
-            <section class="text-center">
-                <a href="https://github.com/moltbot/moltbot" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors">查看 GitHub 仓库</a>
-            </section>
-        </main>
+    <section class="grid gap-6 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 md:grid-cols-3">
+      <div>
+        <h3 class="text-lg font-semibold text-white">多 Agent 路由</h3>
+        <p class="mt-3 text-slate-300">按工作区或群组隔离会话，支持群聊 mention 激活、回复路由和 chunk 发送策略。</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white">伴随应用</h3>
+        <p class="mt-3 text-slate-300">提供 macOS 菜单栏应用、iOS/Android 节点模式，随时调用设备端能力。</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold text-white">安全与运维</h3>
+        <p class="mt-3 text-slate-300">默认 DM 配对策略、模型故障切换、Tailscale/SSH 远程接入与完整诊断工具。</p>
+      </div>
+    </section>
 
-        <footer class="text-center mt-12 text-gray-600">
-            <p>&copy; 2023 cn-moltbot. All rights reserved.</p>
-        </footer>
+    <section id="install" class="space-y-8">
+      <div class="text-center">
+        <h2 class="text-3xl font-semibold text-white">安装与快速开始</h2>
+        <p class="mt-3 text-slate-300">Node 22+ 运行时，推荐使用 CLI 向导完成安装。</p>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-2">
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-lg font-semibold text-white">推荐安装</h3>
+          <pre class="mt-4 overflow-x-auto rounded-2xl bg-slate-950/70 p-4 text-sm text-rose-100"><code>npm install -g moltbot@latest
+# 或: pnpm add -g moltbot@latest
+
+moltbot onboard --install-daemon</code></pre>
+          <p class="mt-4 text-sm text-slate-300">向导会安装 Gateway 守护进程，保证后台运行。</p>
+        </div>
+        <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+          <h3 class="text-lg font-semibold text-white">快速启动</h3>
+          <pre class="mt-4 overflow-x-auto rounded-2xl bg-slate-950/70 p-4 text-sm text-rose-100"><code>moltbot gateway --port 18789 --verbose
+
+moltbot message send --to +1234567890 \
+  --message "Hello from Moltbot"
+
+moltbot agent --message "Ship checklist" \
+  --thinking high</code></pre>
+          <p class="mt-4 text-sm text-slate-300">可选择将回复发送回任意连接渠道。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
+      <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <h2 class="text-2xl font-semibold text-white">安全默认设置</h2>
+          <p class="mt-4 text-slate-300">
+            Moltbot 默认将未知私信视为不可信输入，并通过配对码流程进行授权。你也可以为群组或频道设置 allowlist 与 mention 激活策略。
+          </p>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>• DM 配对策略：dmPolicy="pairing"，未知发送方需先验证。</li>
+            <li>• 公开 DM 需显式开启：dmPolicy="open" + allowFrom。</li>
+            <li>• 使用 moltbot doctor 检查配置风险。</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-slate-800 bg-slate-950/70 p-5 text-sm text-slate-300">
+          <p class="font-semibold text-white">远程访问</p>
+          <p class="mt-3">支持 Tailscale Serve/Funnel 或 SSH 隧道，让 Gateway 保持回环绑定也可安全远程访问。</p>
+          <p class="mt-4 font-semibold text-white">沙箱模式</p>
+          <p class="mt-3">可设置 agents.defaults.sandbox.mode: "non-main" 让非主会话在 Docker 沙箱中运行。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-3xl border border-slate-800 bg-slate-900/70 p-8">
+      <h2 class="text-2xl font-semibold text-white">Moltbot 架构（简要）</h2>
+      <div class="mt-6 rounded-2xl bg-slate-950/70 p-6 text-sm text-slate-300">
+        <p>WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / Matrix / Zalo / WebChat</p>
+        <p class="mt-2">&nbsp;&nbsp;│</p>
+        <p>&nbsp;&nbsp;▼</p>
+        <p>Gateway 控制平面 (ws://127.0.0.1:18789)</p>
+        <p>&nbsp;&nbsp;│</p>
+        <p>&nbsp;&nbsp;├─ Pi Agent (RPC)</p>
+        <p>&nbsp;&nbsp;├─ CLI</p>
+        <p>&nbsp;&nbsp;├─ WebChat UI</p>
+        <p>&nbsp;&nbsp;└─ macOS / iOS / Android 节点</p>
+      </div>
+    </section>
+
+    <section id="links" class="space-y-6 text-center">
+      <h2 class="text-3xl font-semibold text-white">更多资源</h2>
+      <p class="text-slate-300">深入了解 Moltbot 的完整文档与生态。</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://docs.molt.bot" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">文档中心</a>
+        <a href="https://docs.molt.bot/start/wizard" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">向导说明</a>
+        <a href="https://docs.molt.bot/channels" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">渠道列表</a>
+        <a href="https://docs.molt.bot/tools" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">工具与技能</a>
+        <a href="https://docs.molt.bot/gateway/security" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">安全指南</a>
+        <a href="https://github.com/moltbot/moltbot" class="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-200 hover:border-white">GitHub 仓库</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950/80">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm text-slate-400 md:flex-row">
+      <p>© 2025 Moltbot · Personal AI Assistant</p>
+      <div class="flex gap-4">
+        <a href="https://docs.molt.bot/start/faq" class="hover:text-white">FAQ</a>
+        <a href="https://docs.molt.bot/start/showcase" class="hover:text-white">案例展示</a>
+        <a href="https://docs.molt.bot/install/updating" class="hover:text-white">更新指南</a>
+      </div>
     </div>
+  </footer>
 </body>
 </html>
